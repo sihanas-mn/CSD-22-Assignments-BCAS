@@ -1,0 +1,18 @@
+# Take the lengths of the three sides of the triangle as input from the user
+side1 = float(input("Enter the length of side1: "))
+side2 = float(input("Enter the length of side2: "))
+side3 = float(input("Enter the length of side3: "))
+
+# Check if the sides form a valid triangle
+if side1 + side2 > side3 and side1 + side3 > side2 and side2 + side3 > side1:
+    # Check if all three sides are equal
+    if side1 == side2 == side3:
+        print("The triangle is an equilateral triangle.")
+    # Check if any two sides are equal
+    elif side1 == side2 or side1 == side3 or side2 == side3:
+        print("The triangle is an isosceles triangle.")
+    # If no sides are equal
+    else:
+        print("The triangle is a scalene triangle.")
+else:
+    print("The sides do not form a valid triangle.")
