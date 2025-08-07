@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\iamsi\\OneDrive - British College of Applied Studies\\HND in Computing\\semester 1\\assignments\\unit-4 Database Design and Development\\excercises C#\\project01\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{63112C6C-2A3E-4E09-B89D-296B492D7EA0}|project01\\project01.csproj|c:\\users\\iamsi\\onedrive - british college of applied studies\\hnd in computing\\semester 1\\assignments\\unit-4 database design and development\\excercises c#\\project01\\project01\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63112C6C-2A3E-4E09-B89D-296B492D7EA0}|project01\\project01.csproj|solutionrelative:project01\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\iamsi\\OneDrive - British College of Applied Studies\\HND in Computing\\semester 1\\assignments\\unit-4 Database Design and Development\\excercises C#\\project01\\project01\\Program.cs",
+              "RelativeDocumentMoniker": "project01\\Program.cs",
+              "ToolTip": "C:\\Users\\iamsi\\OneDrive - British College of Applied Studies\\HND in Computing\\semester 1\\assignments\\unit-4 Database Design and Development\\excercises C#\\project01\\project01\\Program.cs",
+              "RelativeToolTip": "project01\\Program.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAgwFIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T03:17:53.427Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
