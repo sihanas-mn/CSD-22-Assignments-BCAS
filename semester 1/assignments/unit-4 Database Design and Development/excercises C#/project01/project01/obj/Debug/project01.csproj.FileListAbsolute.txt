@@ -1,0 +1,7 @@
+C:\Users\sihanas\OneDrive - British College of Applied Studies\HND in Computing\semester 1\assignments\unit-4 Database Design and Development\excercises C#\project01\project01\bin\Debug\project01.exe.config
+C:\Users\sihanas\OneDrive - British College of Applied Studies\HND in Computing\semester 1\assignments\unit-4 Database Design and Development\excercises C#\project01\project01\bin\Debug\project01.exe
+C:\Users\sihanas\OneDrive - British College of Applied Studies\HND in Computing\semester 1\assignments\unit-4 Database Design and Development\excercises C#\project01\project01\bin\Debug\project01.pdb
+C:\Users\sihanas\OneDrive - British College of Applied Studies\HND in Computing\semester 1\assignments\unit-4 Database Design and Development\excercises C#\project01\project01\obj\Debug\project01.csproj.AssemblyReference.cache
+C:\Users\sihanas\OneDrive - British College of Applied Studies\HND in Computing\semester 1\assignments\unit-4 Database Design and Development\excercises C#\project01\project01\obj\Debug\project01.csproj.CoreCompileInputs.cache
+C:\Users\sihanas\OneDrive - British College of Applied Studies\HND in Computing\semester 1\assignments\unit-4 Database Design and Development\excercises C#\project01\project01\obj\Debug\project01.exe
+C:\Users\sihanas\OneDrive - British College of Applied Studies\HND in Computing\semester 1\assignments\unit-4 Database Design and Development\excercises C#\project01\project01\obj\Debug\project01.pdb
