@@ -1,0 +1,3 @@
+SELECT RoomID FROM RoomFacility
+UNION
+SELECT RoomID FROM Employee;
