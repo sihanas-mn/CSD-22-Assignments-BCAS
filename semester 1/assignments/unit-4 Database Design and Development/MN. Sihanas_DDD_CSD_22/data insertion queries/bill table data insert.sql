@@ -1,0 +1,6 @@
+INSERT INTO Bill (BillID, ServiceID, ReservationID, TotalAmount, DeductedAmount, FinalAmount) VALUES
+('B01', 'SER001', 'RES01', 700.00, 100.00, 600.00),
+('B02', 'SER002', 'RES02', 1100.00, 100.00, 1000.00),
+('B03', 'SER003', 'RES03', 2500.00, 100.00, 2400.00),
+('B04', 'SER004', 'RES04', 3150.00, 100.00, 3050.00),
+('B05', 'SER005', 'RES05', 5050.00, 100.00, 4950.00);
