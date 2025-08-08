@@ -1,0 +1,5 @@
+CREATE TABLE Room (
+    RoomID VARCHAR(10) PRIMARY KEY,
+    Type VARCHAR(20),
+    Status VARCHAR(20)
+);
