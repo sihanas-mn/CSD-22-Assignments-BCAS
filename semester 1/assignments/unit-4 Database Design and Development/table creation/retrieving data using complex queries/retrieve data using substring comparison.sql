@@ -1,0 +1,2 @@
+SELECT * FROM Guest
+WHERE Name LIKE 'A%';
