@@ -1,0 +1,87 @@
+import torch
+from transformers import T5ForConditionalGeneration, T5Tokenizer
+from datasets import load_dataset
+
+# Load the SAMSum dataset
+dataset = load_dataset('samsum')
+
+# Split the dataset into training and validation sets
+train_dataset = dataset['train']
+val_dataset = dataset['validation']
+
+# Load the T5 model and tokenizer
+model = T5ForConditionalGeneration.from_pretrained('t5-base')
+tokenizer = T5Tokenizer.from_pretrained('t5-base')
+
+def train_model(model, tokenizer, train_dataset, val_dataset, num_epochs=2, batch_size=8, max_length=512):
+    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+    model.to(device)
+
+    optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
+
+    for epoch in range(num_epochs):
+        # Training loop
+        model.train()
+        total_loss = 0
+        for i in range(0, len(train_dataset), batch_size):
+            batch = train_dataset[i:i+batch_size]
+            # Access the 'dialogue' column correctly assuming it's a Dataset
+            input_ids = tokenizer.batch_encode_plus(batch['dialogue'], return_tensors='pt', max_length=max_length, truncation=True, padding=True).input_ids.to(device)
+            labels = tokenizer.batch_encode_plus(batch['summary'], return_tensors='pt', max_length=max_length, truncation=True, padding=True).input_ids.to(device)
+
+            optimizer.zero_grad()
+            output = model(input_ids=input_ids, labels=labels)
+            loss = output.loss
+            loss.backward()
+            optimizer.step()
+
+            total_loss += loss.item()
+
+        print(f'Epoch {epoch+1}/{num_epochs}, Training Loss: {total_loss/len(train_dataset)}')
+
+        # Validation loop
+        model.eval()
+        with torch.no_grad():
+            val_loss = 0
+            for i in range(0, len(val_dataset), batch_size):
+                batch = val_dataset[i:i+batch_size]
+                # Access the 'dialogue' column correctly assuming it's a Dataset
+                input_ids = tokenizer.batch_encode_plus(batch['dialogue'], return_tensors='pt', max_length=max_length, truncation=True, padding=True).input_ids.to(device)
+                labels = tokenizer.batch_encode_plus(batch['summary'], return_tensors='pt', max_length=max_length, truncation=True, padding=True).input_ids.to(device)
+
+                output = model(input_ids=input_ids, labels=labels)
+                val_loss += output.loss.item()
+
+            print(f'Validation Loss: {val_loss/len(val_dataset)}')
+
+    return model
+
+# Train the modelx
+trained_model = train_model(model, tokenizer, train_dataset, val_dataset)
+
+from rouge import Rouge
+
+def calculate_rouge_scores(model, tokenizer, dataset):
+    rouge = Rouge()
+    hypotheses = []
+    references = []
+
+    # Get the device the model is on
+    device = next(model.parameters()).device
+
+    for text in dataset:
+        input_ids = tokenizer.encode(text['dialogue'], return_tensors='pt').to(device) # Move input_ids to the device
+        summary_ids = model.generate(input_ids)
+        hypothesis = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+        reference = text['summary']
+
+        hypotheses.append(hypothesis)
+        references.append(reference)
+
+    scores = rouge.get_scores(hypotheses, references, avg=True)
+    return scores
+
+val_scores = calculate_rouge_scores(trained_model, tokenizer, val_dataset)
+print(val_scores)
+
+torch.save(model.state_dict(), '/content/drive/MyDrive/abstractive-model-sihanas002.pth')
