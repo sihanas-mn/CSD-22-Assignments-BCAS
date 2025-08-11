@@ -1,0 +1,96 @@
+import torch
+import torch.nn as nn
+from transformers import T5ForConditionalGeneration, T5Tokenizer, AdamW, get_linear_schedule_with_warmup
+from datasets import load_dataset
+from rouge import Rouge
+import numpy as np
+from torch.utils.data import DataLoader
+
+# Load the SAMSum dataset
+dataset = load_dataset('samsum')
+train_dataset = dataset['train']
+val_dataset = dataset['validation']
+
+# Load T5 model and tokenizer
+model = T5ForConditionalGeneration.from_pretrained('t5-base')
+tokenizer = T5Tokenizer.from_pretrained('t5-base')
+
+def collate_fn(batch, tokenizer, max_length):
+    inputs = tokenizer([sample['dialogue'] for sample in batch],
+                       return_tensors='pt', max_length=max_length, truncation=True, padding=True)
+    labels = tokenizer([sample['summary'] for sample in batch],
+                       return_tensors='pt', max_length=max_length, truncation=True, padding=True)
+    inputs['labels'] = labels.input_ids
+    return inputs
+
+def train_model(model, tokenizer, train_dataset, val_dataset, num_epochs=8, batch_size=8, max_length=512, lr=5e-5):
+    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+    model.to(device)
+
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True,
+                              collate_fn=lambda batch: collate_fn(batch, tokenizer, max_length))
+    val_loader = DataLoader(val_dataset, batch_size=batch_size, collate_fn=lambda batch: collate_fn(batch, tokenizer, max_length))
+
+    optimizer = torch.optim.AdamW(model.parameters(), lr=lr)
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=2, gamma=0.9)  # Reduce learning rate after 2 epochs
+
+    for epoch in range(num_epochs):
+        model.train()
+        total_loss = 0
+
+        for batch in train_loader:
+            batch = {k: v.to(device) for k, v in batch.items()}
+            optimizer.zero_grad()
+            output = model(**batch)
+            loss = output.loss
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)  # Gradient clipping
+            optimizer.step()
+            total_loss += loss.item()
+
+        avg_train_loss = total_loss / len(train_loader)
+        print(f'Epoch {epoch+1}/{num_epochs}, Training Loss: {avg_train_loss}')
+        scheduler.step()
+
+        # Validation
+        model.eval()
+        val_loss = 0
+        with torch.no_grad():
+            for batch in val_loader:
+                batch = {k: v.to(device) for k, v in batch.items()}
+                output = model(**batch)
+                val_loss += output.loss.item()
+
+        avg_val_loss = val_loss / len(val_loader)
+        print(f'Validation Loss: {avg_val_loss}')
+
+    return model
+
+trained_model = train_model(model, tokenizer, train_dataset, val_dataset)
+
+def calculate_rouge_scores(model, tokenizer, dataset, batch_size=8, max_length=512):
+    rouge = Rouge()
+    device = next(model.parameters()).device
+    hypotheses = []
+    references = []
+
+    loader = DataLoader(dataset, batch_size=batch_size, collate_fn=lambda batch: collate_fn(batch, tokenizer, max_length))
+    for batch in loader:
+        # Get input_ids and move them to the device
+        input_ids = batch['input_ids'].to(device)
+        with torch.no_grad():
+            # Generate summaries
+            summary_ids = model.generate(input_ids, max_length=max_length, num_beams=4, early_stopping=True)
+        # Decode the generated summaries
+        hypotheses.extend(tokenizer.batch_decode(summary_ids, skip_special_tokens=True))
+        # Decode the actual summaries
+        references.extend(tokenizer.batch_decode(batch['labels'], skip_special_tokens=True))
+
+    # Calculate ROUGE scores
+    scores = rouge.get_scores(hypotheses, references, avg=True)
+    return scores
+
+val_scores = calculate_rouge_scores(trained_model, tokenizer, val_dataset)
+print(f'ROUGE Scores: {val_scores}')
+
+torch.save(model.state_dict(), '/content/drive/MyDrive/abstractive-model-sihanas002.pth')
