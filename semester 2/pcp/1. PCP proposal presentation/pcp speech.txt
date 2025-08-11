@@ -1,0 +1,91 @@
+Slide 1: Title Slide (30 seconds)
+Speech:
+"Good [morning/afternoon], everyone. My name is MN. Sihanas, and I’m here to present my project proposal on 'NLP-Based Text Summarization to Retrieve Efficient Data.' This project focuses on using natural language processing techniques to summarize large volumes of text into concise summaries, making it easier to extract key insights."
+
+Slide 2: Table of Contents (15 seconds)
+Speech:
+"Here’s the outline of today’s presentation. I will walk you through the background and objectives of the project, the tools and datasets I’ll be using, the project timeline, and the evaluation plan, followed by a discussion of the limitations and conclusion."
+
+Slide 3: Background Information (40 seconds)
+Speech:
+"In today’s world, we are constantly overwhelmed by the sheer amount of text generated online—from news articles to research papers. Manually processing this information is time-consuming and inefficient. This project aims to automate the summarization process using NLP techniques to create concise summaries, making it easier to access important insights quickly."
+
+Slide 4: Introduction (30 seconds)
+Speech:
+"My goal with this project is to develop a text summarization model that efficiently reduces lengthy text into shorter, coherent summaries. The system will apply both extractive and abstractive summarization techniques, which I will explain in the next slides. This will be useful in fields like journalism, research, and business, where quick access to information is essential."
+
+Slide 5: Project Objectives (40 seconds)
+Speech:
+"My objectives are straightforward:
+First, to gain hands-on experience with both extractive and abstractive summarization techniques.
+Second, to improve my understanding of how NLP models work and how they can be applied to real-world tasks.
+Third, to contribute to the growing need for tools that help in processing large volumes of data efficiently.
+Lastly, I aim to address the problem of information overload, where users need to sift through large texts to get key insights."
+
+Slide 6: Literature Review (1 minute)
+Speech:
+"I reviewed several studies to guide my approach. For example, Zhang et al. (2019) implemented a transfer learning-based summarization model using pre-trained language models, while Cheng and Lapata (2016) explored neural networks for sentence generation. These studies help inform my decision to use Transformer-based models like BERT and GPT for this project. Both models have shown excellent performance in understanding and generating text, making them suitable for summarization."
+
+Slide 7: Top-Level Architecture (1 minute 30 seconds)
+Speech:
+"This slide shows the top-level architecture for the system I plan to build. Let me walk you through the process step by step, explaining the tools I’ll be using for each part:
+
+Raw Dataset Ingestion:
+I’ll begin by loading the Kaggle News Summary Dataset. For this, I’ll use Pandas, a Python library, to manage and explore the dataset.
+
+Preprocessing:
+In this step, I’ll clean the data by removing unnecessary symbols, stop words, and special characters. I’ll also perform tokenization, stemming, and lemmatization to normalize the text. For this, I’ll rely on tools like NLTK and spaCy.
+
+Model Training:
+For training the model, I’ll use Transformer-based models from Hugging Face, specifically BERT for extractive summarization and GPT for abstractive summarization. These models will be fine-tuned on the preprocessed dataset using TensorFlow to optimize their performance.
+
+Model Evaluation:
+Once the models are trained, I’ll evaluate their performance using ROUGE metrics. ROUGE-N will measure n-gram overlap between the generated summary and the reference summary, and ROUGE-L will evaluate sentence-level coherence.
+
+Interface Development:
+I’ll develop a user-friendly interface using Streamlit. This will allow users to input their text directly and get a summary in real-time. Streamlit is simple to use and integrates well with the Python environment, making it ideal for this project.
+
+Text Input and Summarized Output:
+The final step involves the user providing the input text, which will be processed through the model, and the summarized output will be displayed on the interface using Streamlit."
+
+Slide 8: Tools and Technology (40 seconds)
+Speech:
+"The tools I plan to use are key to the success of this project.
+
+Python will serve as the main programming language.
+NLTK and spaCy will handle preprocessing tasks like tokenization and text cleaning.
+Transformers from Hugging Face will provide pre-trained models like BERT and GPT, which I’ll fine-tune for summarization.
+TensorFlow will be used for model training and optimization.
+Lastly, I’ll develop a user-friendly interface using Streamlit, which is perfect for quick prototyping and interaction with the summarization tool."
+Slide 9: Dataset (45 seconds)
+Speech:
+"I’ve chosen the Kaggle News Summary Dataset for this project. Here’s why:
+
+It provides concise summaries that are ideal for training an abstractive summarization model.
+The dataset covers a wide range of topics, helping the model generalize better.
+The data is clean and well-formatted, reducing the amount of preprocessing needed, which allows me to focus more on model development.
+This dataset will serve as the core training material for the summarization models."
+Slide 10: Timeline (30 seconds)
+Speech:
+"This Gantt chart outlines my 10-week project timeline. The first two weeks will focus on data collection and preprocessing, followed by model training over the next five weeks. The final three weeks will be spent on testing, interface development, and finalizing the report. Each phase is designed to ensure steady progress without rushing any critical steps."
+
+Slide 11: Tentative Budget (30 seconds)
+Speech:
+"The estimated budget for this project is 11,500 LKR, which covers electricity, hardware, and internet costs. To keep expenses low, I will rely on free and open-source tools, such as TensorFlow and Hugging Face Transformers, and use cloud resources like Google Colab for training models."
+
+Slide 12: Evaluation Plan (45 seconds)
+Speech:
+"I plan to evaluate the model using ROUGE metrics, specifically ROUGE-N and ROUGE-L, which are standard for summarization tasks. ROUGE-N will assess n-gram overlap, while ROUGE-L will evaluate sentence fluency. I will also calculate the F1 score to balance precision and recall, ensuring the model provides accurate and relevant summaries. Based on these metrics, I will adjust the model as needed."
+
+Slide 13: Limitations (30 seconds)
+Speech:
+"Like any project, this one comes with limitations. The main challenges include limited computational resources, which may restrict the depth of model training, and a tight timeline, which may limit the extent of experimentation. Budget constraints also prevent access to premium cloud resources, so I’ll be working within these limitations."
+
+Slide 14: Conclusion (30 seconds)
+Speech:
+"In conclusion, this project will leverage state-of-the-art NLP techniques to develop a summarization tool that can automatically condense large texts into shorter, more readable summaries. I aim to build a system that improves information retrieval and saves time for users. Moving forward, I will focus on improving model accuracy and addressing any challenges that arise."
+
+Slide 15: Questions (30 seconds)
+Speech:
+"Thank you for your attention. I’m happy to answer any questions you may have about my project proposal."
+
