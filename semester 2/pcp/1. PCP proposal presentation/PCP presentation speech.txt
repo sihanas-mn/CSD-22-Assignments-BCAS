@@ -1,0 +1,100 @@
+Here's the **combined and shortened version** of the speech with time reduced for each slide:
+
+---
+
+### **Slide 1: Title Slide (30 seconds)**
+**Speech**:  
+"Good [morning/afternoon], my name is MN. Sihanas, and today I will present my project proposal on 'NLP-Based Text Summarization to Retrieve Efficient Data.' Supervised by Mrs. Alf. Sajeetha, the goal of this project is to use NLP techniques to summarize large volumes of text into concise, meaningful insights."
+
+---
+
+### **Slide 2: Table of Contents (15 seconds)**
+**Speech**:  
+"This presentation covers the background, objectives, tools, datasets, timeline, budget, and evaluation plan for the project."
+
+---
+
+### **Slide 3: Background Information (40 seconds)**
+**Speech**:  
+"With the overwhelming amount of text available today, it's challenging to process large amounts of information efficiently. This project aims to develop a summarization model using extractive and abstractive techniques to condense text into meaningful summaries, saving time and improving information retrieval."
+
+---
+
+### **Slide 4: Introduction (25 seconds)**
+**Speech**:  
+"My project will focus on creating a summarization model that condenses large bodies of text into concise summaries. This will help in improving information accessibility and decision-making in fields like academia and business."
+
+---
+
+### **Slide 5: Project Objectives (40 seconds)**
+**Speech**:  
+"My objectives are to gain experience with AI-driven summarization techniques, improve comprehension using both extractive and abstractive methods, enhance data accessibility, and address the problem of information overload through automation."
+
+---
+
+### **Slide 6: Literature Review (1 minute)**
+**Speech**:  
+"I’ve reviewed several key works. Zhang et al. (2019) implemented a transfer learning-based summarization model, and Cheng and Lapata (2016) used neural networks for sentence generation. These studies guide my approach in model selection and training."
+
+---
+
+### **Slide 7: Top-Level Architecture (50 seconds)**
+**Speech**:  
+"Here’s the architecture I plan to build:  
+1. **Raw Dataset Ingestion**: Using Python and Pandas to load data.  
+2. **Preprocessing**: NLTK and spaCy for text cleaning and tokenization.  
+3. **Model Training**: I’ll use Transformers and TensorFlow to fine-tune models like BERT or GPT.  
+4. **Evaluation**: ROUGE and F1 scores will evaluate performance.  
+5. **Interface Development**: Streamlit will provide a user-friendly interface for text input and summary output."
+
+---
+
+### **Slide 8: Tools and Technology (35 seconds)**
+**Speech**:  
+"I'll use Python for coding, NLTK for text preprocessing, Transformers and TensorFlow for model building, and Streamlit for developing the interface. These tools will help implement both extractive and abstractive summarization techniques."
+
+---
+
+### **Slide 9: Dataset (40 seconds)**
+**Speech**:  
+"I have chosen the **Kaggle News Summary Dataset** because it provides concise summaries that are relevant to real-world applications. It includes a diverse range of topics and is well-formatted, reducing preprocessing time and making it ideal for training abstractive summarization models."
+
+---
+
+### **Slide 10: Timeline (25 seconds)**
+**Speech**:  
+"This Gantt chart shows the 10-week project timeline, starting with data collection and model training, followed by testing and submission."
+
+---
+
+### **Slide 11: Tentative Budget (25 seconds)**
+**Speech**:  
+"The estimated budget is 11,500 LKR, covering electricity, hardware, and internet costs. I’ll use free tools and datasets to keep the project cost-efficient."
+
+---
+
+### **Slide 12: Evaluation Plan (40 seconds)**
+**Speech**:  
+"I will evaluate the model using ROUGE and F1 scores to measure summary quality and balance precision and recall. These metrics will guide adjustments to improve the model's performance."
+
+---
+
+### **Slide 13: Limitations (30 seconds)**
+**Speech**:  
+"Limitations include budget and time constraints, which may limit experimentation with advanced models. The 10-week timeline will restrict the amount of fine-tuning and testing that can be done."
+
+---
+
+### **Slide 14: Conclusion (25 seconds)**
+**Speech**:  
+"In conclusion, this project will develop a text summarization model that automates the process of condensing large texts. Future work will focus on refining the model for better accuracy."
+
+---
+
+### **Slide 15: Questions (30 seconds)**
+**Speech**:  
+"Thank you for your attention. I’m happy to answer any questions you may have about my proposal."
+
+---
+
+This version trims down each slide’s content and ensures the presentation remains within 10 minutes. Let me know if you need further adjustments!
