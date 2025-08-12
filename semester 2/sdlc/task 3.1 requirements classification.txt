@@ -1,0 +1,19 @@
+Functional Requirements:
+
+1.Customer Management
+2.Product and Inventory Management
+3.Order Processing and Payment
+4.Admin Management
+5.Search and Filter
+
+
+
+non functional requirements:
+
+1.Performance
+2.Security
+3.Reliability
+4.Scalability
+5.Usability
+6.Maintainability
+7.Compliance
