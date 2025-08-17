@@ -1,0 +1,18 @@
+i need a stylish web design for my acdemic project i need the code for each page sperately.
+my project scenario: ABC Hospital online management website.
+these are the different web pages for different purpose and website requirements: 
+page 1- Welcome page: I am a patient button, I am Doctor button, I am a receptionist button, I am an Admin button.
+page 2- for patients page: Make an appointment button, See my appointment button. 
+page 3- Make an appointment page (for patient): Name Input, Contact number Input, Email input, Doctor's name input, Reason input, Date and Time input, Book button. 
+page 4- See my appointment page (for patient): reference number input, check appointment button. 
+page 5- see my appointment results page: a table which includes Doctor Name, Date and Time, Reason, Confirmation status columns. 
+page 6- Doctor login page: doctor ID input, password input, login button. 
+page 7- see appointments (doctors perspective): a tabel which includes patient name, Date and Time, Reason, Contact number columns. 
+page 8- receptionist login page: Receptionist ID input, password input, Login button. 
+page 9- see appointments in (receptionist perspective): a table which includes patient name, Doctor name, reason, Date and Time, Contact number, Confimation status columns. 
+page 10- admin login page: admin ID input, password, login button. 
+page 11- manage hospital staff page (for admin): registered doctord button, registered receptionists button, register new doctor button, register new receptionist button. 
+page 12- registered doctors page (for admin): a table which includes doctor name, Doctor ID, speacialized In, Contact number. 
+page 13- registered receptionists page (for admin): a table which includes receptionist name, receptionist ID, Contact number columns. 
+page 14- register new doctor page (for admin): doctor name input, specialized in input, contact number input, New doctor ID input, new password imput. 
+page 15- register new receptionist (for admin): receptionist name input, contact number input, new receptionist ID input, new password input.
