@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment Form</title>
+    <style>
+        body {
+            font-family: 'Tahoma', sans-serif;
+            background-color: #e6f7ff;
+            color: #333;
+        }
+        .form-box {
+            margin: 50px auto;
+            width: 500px;
+            padding: 30px;
+            background-color: #b3d9ff;
+            border-radius: 10px;
+        }
+        h2 {
+            color: #005073;
+        }
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        input[type="submit"] {
+            background-color: #005073;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #007acc;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h2>Book an Appointment</h2>
+        <form action="appointment_confirm.html">
+            <label for="patient-name">Patient Name:</label>
+            <input type="text" id="patient-name" placeholder="Enter patient name" required>
+            
+            <label for="appointment-date">Appointment Date:</label>
+            <input type="date" id="appointment-date" required>
+            
+            <label for="doctor">Select Doctor:</label>
+            <select id="doctor" required>
+                <option value="">Choose Doctor</option>
+                <option value="dr_smith">Dr. Smith</option>
+                <option value="dr_jones">Dr. Jones</option>
+            </select>
+            
+            <input type="submit" value="Book Appointment">
+        </form>
+    </div>
+</body>
+</html>
