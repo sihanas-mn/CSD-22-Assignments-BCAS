@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Appointments</title>
+    <style>
+        body {
+            font-family: 'Lucida Sans', sans-serif;
+            background-color: #faf0e6;
+            color: #333;
+        }
+        .appointments-table {
+            margin: 50px auto;
+            width: 80%;
+            border-collapse: collapse;
+        }
+        table {
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #8b0000;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="appointments-table">
+        <h2>All Appointments</h2>
+        <table>
+            <tr>
+                <th>Patient Name</th>
+                <th>Doctor</th>
+                <th>Appointment Date</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>John Doe</td>
+                <td>Dr. Smith</td>
+                <td>2024-10-20</td>
+                <td>Confirmed</td>
+            </tr>
+            <tr>
+                <td>Jane Smith</td>
+                <td>Dr. Jones</td>
+                <td>2024-10-21</td>
+                <td>Pending</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
