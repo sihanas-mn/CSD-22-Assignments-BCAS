@@ -1,0 +1,147 @@
+<?php
+session_start();
+include 'db_connect.php';
+
+// Fetch available doctors and their specializations
+$doctors_query = "SELECT d.*, s.specialization_title 
+                  FROM doctor d 
+                  JOIN specialization s ON d.specialization_id = s.specialization_id";
+$doctors_result = $conn->query($doctors_query);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Appointment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            margin-top: 2rem;
+        }
+        .header {
+            background: #005792;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #005792;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .reference-box {
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            padding: 15px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Book New Appointment</h1>
+    </div>
+    
+    <div class="container">
+        <?php 
+        // Check if reference number is set in the URL (after successful booking)
+        if (isset($_GET['reference'])) {
+            echo "<div class='reference-box'>Your Appointment Reference Number: " . 
+                 htmlspecialchars($_GET['reference']) . 
+                 "<br><p style='font-size: 0.9rem; color: #6c757d;'>Please save this reference number to check your appointment status.</p></div>";
+        } else {
+        ?>
+        <form action="book_appointment.php" method="POST">
+            <div class="form-group">
+                <label>Patient Name:</label>
+                <input type="text" name="patient_name" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Contact Number:</label>
+                <input type="tel" name="contactNo" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Address:</label>
+                <textarea name="address" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Date of Birth:</label>
+                <input type="date" name="DoB" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Select Doctor:</label>
+                <select name="doctor_id" required>
+                    <option value="">Select a Doctor</option>
+                    <?php
+                    while ($doctor = $doctors_result->fetch_assoc()) {
+                        echo "<option value='" . $doctor['doctor_id'] . "'>" . 
+                             $doctor['doc_name'] . " - " . $doctor['specialization_title'] . 
+                             "</option>";
+                    }
+                    ?>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Appointment Date and Time:</label>
+                <input type="datetime-local" name="appointment_datetime" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Reason for Appointment:</label>
+                <textarea name="reason" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Book Appointment</button>
+        </form>
+        <?php } ?>
+    </div>
+</body>
+</html>
