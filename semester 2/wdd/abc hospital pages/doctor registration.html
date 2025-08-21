@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Registration</title>
+    <style>
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #fffaf0;
+            color: #333;
+        }
+        .register-box {
+            margin: 50px auto;
+            width: 500px;
+            padding: 30px;
+            background-color: #ffe4b5;
+            border-radius: 10px;
+        }
+        h2 {
+            color: #8b4513;
+        }
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        input[type="submit"] {
+            background-color: #8b4513;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #d5110e;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-box">
+        <h2>Doctor Registration</h2>
+        <form action="doctor_dashboard.html">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+            <label for="specialization">Specialization:</label>
+            <select id="specialization" required>
+                <option value="">Select Specialization</option>
+                <option value="general">General</option>
+                <option value="cardiology">Cardiology</option>
+                <option value="neurology">Neurology</option>
+                <option value="pediatrics">Pediatrics</option>
+            </select>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>
