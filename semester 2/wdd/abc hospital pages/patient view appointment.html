@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #444;
+        }
+        .appointments-container {
+            margin: 50px auto;
+            width: 80%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #4a90e2;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4a90e2;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .status-confirmed {
+            color: #32cd32;
+            font-weight: bold;
+        }
+        .status-pending {
+            color: #ff8c00;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="appointments-container">
+        <h2>My Appointments</h2>
+        <table>
+            <tr>
+                <th>Patient Name</th>
+                <th>Appointment Date</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>John Doe</td>
+                <td>2024-10-20</td>
+                <td class="status-confirmed">Confirmed</td>
+            </tr>
+            <tr>
+                <td>Jane Smith</td>
+                <td>2024-10-21</td>
+                <td class="status-pending">Pending</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
