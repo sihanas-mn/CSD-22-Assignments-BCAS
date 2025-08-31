@@ -1,0 +1,2 @@
+*.zip filter=lfs diff=lfs merge=lfs -text
+*Road[[:space:]]Traffic[[:space:]]Sign[[:space:]]In[[:space:]]Sri[[:space:]]Lanka.zip filter=lfs diff=lfs merge=lfs -text
