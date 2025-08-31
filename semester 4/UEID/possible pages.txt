@@ -1,0 +1,9 @@
+login and register
+home and dashboard
+account details screen
+fund transfer screen - transfer within or other banks (com bank)
+bill payment - bill payments com bank
+notification and allert screen - bulletins in com bank
+settings and profile - profile in combannk
+FAQ chat bot support screen
+exchange rates screen - combank exchange rates
