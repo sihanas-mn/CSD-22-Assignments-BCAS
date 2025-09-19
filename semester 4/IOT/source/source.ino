@@ -1,0 +1,84 @@
+#define BLYNK_TEMPLATE_ID "TMPL6bmyGxX23"
+#define BLYNK_TEMPLATE_NAME "GAS or FLAME ALERT"
+#define BLYNK_AUTH_TOKEN "62mYXw7G0DwHZ1cHMcKSvUAbWizUfhs7"
+
+#include <WiFi.h>
+#include <BlynkSimpleEsp32.h>
+
+char ssid[] = "STARK-INDUSTRIES";
+char pass[] = "friday85";
+
+#define MQ2_DOUT_PIN 32 //gas sensor pin
+#define FLAME_PIN 35 // flame sensor pin
+#define BUZZER_PIN 25  // Buzzer + pin
+
+BlynkTimer timer;
+unsigned long lastGasAlert = 0;
+unsigned long lastFlameAlert = 0;
+const unsigned long alertCooldown = 7000; //alert cooldown time
+
+void playAlarm() {
+  tone(BUZZER_PIN, 2000); // Start tone at 2kHz
+}
+
+void stopAlarm() {
+  noTone(BUZZER_PIN);     // Stop tone
+}
+
+void checkSensors() {
+  int flameValue = digitalRead(FLAME_PIN);
+  int gasValue = digitalRead(MQ2_DOUT_PIN);
+  bool gasDetected = (gasValue == LOW);    // LOW means gas detected
+  bool flameDetected = (flameValue == LOW); // LOW means flame detected
+
+  // INVERTED LOGIC: LOW = Gas Detected, HIGH = No Gas
+  if (gasValue == LOW) {  // Changed from HIGH to LOW
+    if (millis() - lastGasAlert > alertCooldown) {
+      Blynk.logEvent("gas_alert", "⚠️ Gas Detected!");
+      lastGasAlert = millis();
+    }
+    Serial.println("🚨 GAS DETECTED!");
+  } else {
+    Serial.println("✅ No Gas Detected");
+  }
+
+  // Fire Detection: LOW = Flame Detected (this stays the same)
+  if (flameValue == LOW) {
+    if (millis() - lastFlameAlert > alertCooldown) {
+      Blynk.logEvent("fire_alert", "🔥 Fire Detected!");
+      lastFlameAlert = millis();
+    }
+    Serial.println("🔥 FLAME DETECTED!");
+  } else {
+    Serial.println("✅ No Flame Detected");
+  }
+
+  // Buzzer control for passive buzzer
+  if (gasDetected || flameDetected) {
+    playAlarm();
+  } else {
+    stopAlarm();
+  }
+  
+  Serial.println("---");
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(MQ2_DOUT_PIN, INPUT);
+  pinMode(FLAME_PIN, INPUT);
+  pinMode(BUZZER_PIN, OUTPUT);
+  digitalWrite(BUZZER_PIN, LOW); // Buzzer off at start
+
+  Serial.println("Gas & Flame Detection System Ready!");
+  Serial.println("Using INVERTED logic for MQ2 sensor");
+
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+  timer.setInterval(3000L, checkSensors);
+}
+
+void loop() {
+  Blynk.run();
+  timer.run();
+}

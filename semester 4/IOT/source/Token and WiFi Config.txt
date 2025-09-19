@@ -1,0 +1,9 @@
+#define BLYNK_TEMPLATE_ID "TMPL6bmyGxX23"
+#define BLYNK_TEMPLATE_NAME "GAS or FLAME ALERT"
+#define BLYNK_AUTH_TOKEN "62mYXw7G0DwHZ1cHMcKSvUAbWizUfhs7"
+
+#include <WiFi.h>
+#include <BlynkSimpleEsp32.h>
+
+char ssid[] = "STARK-INDUSTRIES";
+char pass[] = "friday85";
